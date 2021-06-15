@@ -1,23 +1,26 @@
 Reading design file design.xlsx
-<-----CONFIGURING IKE CRYPTO PROFILE----->
- Successful: IKE CRYPTO PROFILE : A-CDM successfully configured.
- Successful: IKE CRYPTO PROFILE : ADVAM_PROD_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : ADVAM_PROD_IKE-NEW successfully configured.
- Successful: IKE CRYPTO PROFILE : ADVAM_TEST_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : ADVAM_TEST_IKE-NEW successfully configured.
- Successful: IKE CRYPTO PROFILE : AREOCARE_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : AZURE_MEL_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : AZURE_SYD_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : BoM_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : CROSSCOM_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : ESRI_EGIS_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : ETHAN_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : GENTRACK_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : JETSTAR_JINTERNET successfully configured.
- Successful: IKE CRYPTO PROFILE : LAUNCESTON_TRANSIT successfully configured.
- Successful: IKE CRYPTO PROFILE : Logicalis_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : SCADA-to-BMS successfully configured.
- Successful: IKE CRYPTO PROFILE : SENSOR_DYANMICS_IKE successfully configured.
- Successful: IKE CRYPTO PROFILE : Suite-B-GCM-128 successfully configured.
- Successful: IKE CRYPTO PROFILE : Suite-B-GCM-256 successfully configured.
- Successful: IKE CRYPTO PROFILE : Verizon_IKE successfully configured.
+<-----CONFIGURING IKE GATEWAY----->
+ Successful: IKE GATEWAY : A-CDM_Primary successfully configured.
+ Successful: IKE GATEWAY : A-CDM_Secondary successfully configured.
+ Successful: IKE GATEWAY : ADVAM_PROD_Gateway successfully configured.
+ Successful: IKE GATEWAY : ADVAM_PROD_GATEWAY_1 successfully configured.
+ Successful: IKE GATEWAY : ADVAM_PROD_GATEWAY_2 successfully configured.
+ Successful: IKE GATEWAY : ADVAM_TEST_Gateway successfully configured.
+ Successful: IKE GATEWAY : ADVAM_TEST_Gateway_1 successfully configured.
+ Successful: IKE GATEWAY : ADVAM_TEST_Gateway_2 successfully configured.
+ Successful: IKE GATEWAY : AEROCARE_IKE_Gateway successfully configured.
+ Successful: IKE GATEWAY : AZURE_MEL_IKE_Gateway successfully configured.
+ Successful: IKE GATEWAY : AZURE_SYD_IKE_GATEWAY successfully configured.
+ Successful: IKE GATEWAY : BoM_1_IKE_Gateway successfully configured.
+ Successful: IKE GATEWAY : BoM_2_IKE_Gateway successfully configured.
+ Successful: IKE GATEWAY : CROSSCOM_ORION_Gateway successfully configured.
+ Successful: IKE GATEWAY : ESRI_EGIS_GATEWAY_1 successfully configured.
+ Successful: IKE GATEWAY : ESRI_EGIS_GATEWAY_2 successfully configured.
+ Successful: IKE GATEWAY : ETHAN_IKE_Gateway successfully configured.
+ Successful: IKE GATEWAY : GENTRACK_Gateway successfully configured.
+ Successful: IKE GATEWAY : IKE51-LAUNCESTON-IKEv1 successfully configured.
+ Successful: IKE GATEWAY : JETSTAR_JINTERNET_Gateway successfully configured.
+ Successful: IKE GATEWAY : Logicalis_BaaS successfully configured.
+ Successful: IKE GATEWAY : SCADA-to-BMS successfully configured.
+ Successful: IKE GATEWAY : SENSOR_DYNAMIC_Gateway successfully configured.
+ Successful: IKE GATEWAY : Verizon_IKE_Gateway successfully configured.

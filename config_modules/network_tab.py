@@ -14,6 +14,7 @@ from panos.network import BgpAuthProfile
 from panos.network import BgpPeerGroup
 from panos.network import BgpPeer
 from panos.network import IkeCryptoProfile
+from panos.network import IkeGateway
 
 import json
 from rich.console import Console
@@ -461,4 +462,31 @@ def ike_crypto_profile_configuration(config_facts, logfile, pano) -> None:
             )
             logfile.write(
                 f" Failed: IKE CRYPTO PROFILE : {profile['name']} failed to configure with message {msg}.\n"
+            )
+            
+
+def ike_gateway_configuration(config_facts, logfile, pano) -> None:
+    for gateway in track(config_facts):
+        # define configuration tree
+        template_parent = Template(f"{gateway['template']}")
+        # pop template name to create a dictionary of the profile configuration
+        gateway.pop("template")
+        # generate configuration
+        configuration = IkeGateway(**gateway)
+        try:
+            # Enter template configuration
+            template_config = pano.add(template_parent)
+            template_config.add(configuration).create()
+            console.print(
+                f"[bold green] :thumbs_up: IKE GATEWAY : {gateway['name']} successfully configured."
+            )
+            logfile.write(
+                f" Successful: IKE GATEWAY : {gateway['name']} successfully configured.\n"
+            )
+        except Exception as msg:
+            console.print(
+                f"[bold red] :thumbs_down: IKE GATEWAY : {gateway['name']} failed to configure with message {msg}."
+            )
+            logfile.write(
+                f" Failed: IKE GATEWAY : {gateway['name']} failed to configure with message {msg}.\n"
             )

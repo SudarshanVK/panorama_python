@@ -3,7 +3,6 @@ import json
 import yaml
 
 from rich.console import Console
-
 console = Console()
 
 from utils.xls_to_facts import read_design
@@ -25,7 +24,7 @@ from config_modules.network_tab import bgp_auth_profile_configuration
 from config_modules.network_tab import bgp_peer_groups_configuration
 from config_modules.network_tab import bgp_peer_configuration
 from config_modules.network_tab import ike_crypto_profile_configuration
-
+from config_modules.network_tab import ike_gateway_configuration
 
 from panos.device import Vsys
 
@@ -173,6 +172,15 @@ def main():
     #     ike_crypto_profile_configuration(
     #         ike_crypto_profile_facts, logfile, pano
     #     )
+    
+    # # invoke function to configure ike gateway if in the design facts
+    # if 'ike_gateway' in design["facts"]:
+    #     ike_gateway_facts = design["facts"]["ike_gateway"]
+    #     console.print("\n[bold cyan]<-----CONFIGURING IKE GATEWAY----->")
+    #     logfile.write("<-----CONFIGURING IKE GATEWAY----->\n")
+    #     ike_gateway_configuration(
+    #         ike_gateway_facts, logfile, pano
+    #     )      
 
 
 if __name__ == "__main__":
