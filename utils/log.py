@@ -1,5 +1,7 @@
 from rich.console import Console
+
 console = Console()
+
 
 def log_messages(success_messages, failure_messages, logfile) -> None:
     for message in success_messages:
