@@ -25,6 +25,9 @@ from config_modules.network_tab import bgp_peer_groups_configuration
 from config_modules.network_tab import bgp_peer_configuration
 from config_modules.network_tab import ike_crypto_profile_configuration
 from config_modules.network_tab import ike_gateway_configuration
+from config_modules.network_tab import ipsec_crypto_profile_configuration
+from config_modules.network_tab import ipsec_tunnel_configuration
+from config_modules.network_tab import ipsec_proxyid_configuration
 
 from panos.device import Vsys
 
@@ -180,8 +183,36 @@ def main():
     #     logfile.write("<-----CONFIGURING IKE GATEWAY----->\n")
     #     ike_gateway_configuration(
     #         ike_gateway_facts, logfile, pano
-    #     )      
+    #     )
+    
 
+    # # invoke function to configure ipsec crypto profile if in the design facts
+    # if 'ipsec_crypto_profile' in design["facts"]:
+    #     ipsec_crypto_facts = design["facts"]["ipsec_crypto_profile"]
+    #     console.print("\n[bold cyan]<-----CONFIGURING IKE GATEWAY----->")
+    #     logfile.write("<-----CONFIGURING IKE GATEWAY----->\n")
+    #     ipsec_crypto_profile_configuration(
+    #         ipsec_crypto_facts, logfile, pano
+    #     )
+
+    # # invoke function to configure ipsec tunnel if in the design facts
+    # if 'ipsec_tunnel' in design["facts"]:
+    #     ipsec_tunnel_facts = design["facts"]["ipsec_tunnel"]
+    #     console.print("\n[bold cyan]<-----CONFIGURING IPSEC TUNNELS----->")
+    #     logfile.write("<-----CONFIGURING IPSEC TUNNELS----->\n")
+    #     ipsec_tunnel_configuration(
+    #         ipsec_tunnel_facts, logfile, pano
+    #     )
+    
+    # invoke function to configure the ipsec proxy ID if in the design facts
+    if 'ipsec_proxyid' in design["facts"]:
+        ipsec_proxyid_facts = design["facts"]["ipsec_proxyid"]
+        console.print("\n[bold cyan]<-----CONFIGURING IPSEC PROXY ID----->")
+        logfile.write("<-----CONFIGURING IPSEC PROXY ID----->\n")
+        ipsec_proxyid_configuration(
+            ipsec_proxyid_facts, logfile, pano
+        )
+    
 
 if __name__ == "__main__":
     main()

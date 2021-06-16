@@ -15,6 +15,9 @@ from panos.network import BgpPeerGroup
 from panos.network import BgpPeer
 from panos.network import IkeCryptoProfile
 from panos.network import IkeGateway
+from panos.network import IpsecCryptoProfile
+from panos.network import IpsecTunnel
+from panos.network import IpsecTunnelIpv4ProxyId
 
 import json
 from rich.console import Console
@@ -489,4 +492,88 @@ def ike_gateway_configuration(config_facts, logfile, pano) -> None:
             )
             logfile.write(
                 f" Failed: IKE GATEWAY : {gateway['name']} failed to configure with message {msg}.\n"
+            )
+
+
+def ipsec_crypto_profile_configuration(config_facts, logfile, pano) -> None:
+    for profile in track(config_facts):
+        # define configuration tree
+        template_parent = Template(f"{profile['template']}")
+        # pop template name to create a dictionary of the profile configuration
+        profile.pop("template")
+        # generate configuration
+        configuration = IpsecCryptoProfile(**profile)
+        try:
+            # Enter template configuration
+            template_config = pano.add(template_parent)
+            template_config.add(configuration).create()
+            console.print(
+                f"[bold green] :thumbs_up: IPSEC CRYPTO PROFILE : {profile['name']} successfully configured."
+            )
+            logfile.write(
+                f" Successful: IPSEC CRYPTO PROFILE : {profile['name']} successfully configured.\n"
+            )
+        except Exception as msg:
+            console.print(
+                f"[bold red] :thumbs_down: IPSEC CRYPTO PROFILE : {profile['name']} failed to configure with message {msg}."
+            )
+            logfile.write(
+                f" Failed: IPSEC CRYPTO PROFILE : {profile['name']} failed to configure with message {msg}.\n"
+            )
+            
+            
+def ipsec_tunnel_configuration(config_facts, logfile, pano) -> None:
+    for tunnel in track(config_facts):
+        # define configuration tree
+        template_parent = Template(f"{tunnel['template']}")
+        # pop template name to create a dictionary of the profile configuration
+        tunnel.pop("template")
+        # generate configuration
+        configuration = IpsecTunnel(**tunnel)
+        try:
+            # Enter template configuration
+            template_config = pano.add(template_parent)
+            template_config.add(configuration).create()
+            console.print(
+                f"[bold green] :thumbs_up: IPSEC TUNNEL : {tunnel['name']} successfully configured."
+            )
+            logfile.write(
+                f" Successful: IPSEC TUNNEL : {tunnel['name']} successfully configured.\n"
+            )
+        except Exception as msg:
+            console.print(
+                f"[bold red] :thumbs_down: IPSEC TUNNEL : {tunnel['name']} failed to configure with message {msg}."
+            )
+            logfile.write(
+                f" Failed: IPSEC TUNNEL : {tunnel['name']} failed to configure with message {msg}.\n"
+            )
+            
+
+def ipsec_proxyid_configuration(config_facts, logfile, pano) -> None:
+    for proxyid in track(config_facts):
+        # define configuration tree
+        template_parent = Template(f"{proxyid['template']}")
+        ipsec_parent = IpsecTunnel(f"{proxyid['tunnel_name']}")
+        # pop template name to create a dictionary of the profile configuration
+        proxyid.pop("template")
+        proxyid.pop("tunnel_name")
+        # generate configuration
+        configuration = IpsecTunnelIpv4ProxyId(**proxyid)
+        try:
+            # Enter template configuration
+            template_config = pano.add(template_parent)
+            ipsec_config = template_config.add(ipsec_parent)
+            ipsec_config.add(configuration).create()
+            console.print(
+                f"[bold green] :thumbs_up: IPSEC PROXY ID : {proxyid['name']} successfully configured for IPSEC TUNNEL: {ipsec_parent}."
+            )
+            logfile.write(
+                f" Successful: IPSEC PROXY ID : {proxyid['name']} successfully configured for IPSEC TUNNEL: {ipsec_parent}\n"
+            )
+        except Exception as msg:
+            console.print(
+                f"[bold red] :thumbs_down: IPSEC TUNNEL : {tunnel['name']} failed to configure for IPSEC TUNNEL: {ipsec_parent} with message {msg}."
+            )
+            logfile.write(
+                f" Failed: IPSEC TUNNEL : {tunnel['name']} failed to configure for IPSEC TUNNEL: {ipsec_parent} with message {msg}.\n"
             )
