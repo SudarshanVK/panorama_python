@@ -8,11 +8,8 @@ console = Console()
 
 
 def vsys_configuration(config_facts, template_facts, logfile, pano) -> None:
-    success_messages = []
-    failure_messages = []
-    # print (config_facts)
     #! This configuration will delete vsys1 in each template that is newly created in this design
-    for template in template_facts:
+    for template in track(template_facts):
         try:
             parent_template = Template(f"{template['template_name']}")
             template_config = pano.add(parent_template)
@@ -62,7 +59,7 @@ def vsys_configuration(config_facts, template_facts, logfile, pano) -> None:
             )
 
     # update the vsys with visible vsys configuration
-    for vsys_config in vsys_visible_vsys_defined:
+    for vsys_config in track(vsys_visible_vsys_defined):
         # print (vsys_config)
         # define configuration tree
         parent_template = Template(f"{vsys_config['template']}")

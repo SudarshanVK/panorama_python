@@ -60,7 +60,7 @@ def main():
         inventory["device_details"]["password"],
     )
 
-    # # invoke function to configure template if in design facts
+    # # # invoke function to configure template if in design facts
     # if 'template' in design["facts"]:
     #     template_facts = design["facts"]["template"]
     #     console.print("\n[bold cyan]<-----CONFIGURING TEMPLATES----->")
@@ -81,12 +81,12 @@ def main():
     #     logfile.write("<-----CONFIGURING AGGREGATE INTERFACES----->\n")
     #     aggregate_interface_configuration(agg_interface_facts, logfile, pano)
 
-    # # invoke function to configure ethernet interfaces if in design facts
-    # if 'ethernet_interfaces' in design['facts']:
-    #     ethernet_interface_facts = design['facts']['ethernet_interfaces']
-    #     console.print("\n[bold cyan]<-----CONFIGURING ETHERNET INTERFACES----->[/bold cyan]")
-    #     logfile.write("<-----CONFIGURING ETHERNET INTERFACES----->\n")
-    #     ethernet_interface_configuration(ethernet_interface_facts, logfile, pano)
+    # invoke function to configure ethernet interfaces if in design facts
+    if 'ethernet_interfaces' in design['facts']:
+        ethernet_interface_facts = design['facts']['ethernet_interfaces']
+        console.print("\n[bold cyan]<-----CONFIGURING ETHERNET INTERFACES----->[/bold cyan]")
+        logfile.write("<-----CONFIGURING ETHERNET INTERFACES----->\n")
+        ethernet_interface_configuration(ethernet_interface_facts, logfile, pano)
 
     # # invoke function to configure sub-interfaces if in design facts
     # if 'sub_interfaces' in design['facts']:
@@ -138,8 +138,8 @@ def main():
     #     logfile.write("<-----CONFIGURING STATIC ROUTES----->\n")
     #     static_route_configuration(static_route_facts, logfile, pano)
 
-    # ! Reject default route option is not working.
-    # invoke function to enable bgp and apply base configuration if in the design facts
+    # # ! Reject default route option is not working.
+    # # invoke function to enable bgp and apply base configuration if in the design facts
     # if 'bgp' in design["facts"]:
     #     bgp_facts = design["facts"]["bgp"]
     #     console.print("\n[bold cyan]<-----ENABLING BGP----->")
@@ -184,7 +184,6 @@ def main():
     #     ike_gateway_configuration(
     #         ike_gateway_facts, logfile, pano
     #     )
-    
 
     # # invoke function to configure ipsec crypto profile if in the design facts
     # if 'ipsec_crypto_profile' in design["facts"]:
@@ -204,14 +203,14 @@ def main():
     #         ipsec_tunnel_facts, logfile, pano
     #     )
     
-    # invoke function to configure the ipsec proxy ID if in the design facts
-    if 'ipsec_proxyid' in design["facts"]:
-        ipsec_proxyid_facts = design["facts"]["ipsec_proxyid"]
-        console.print("\n[bold cyan]<-----CONFIGURING IPSEC PROXY ID----->")
-        logfile.write("<-----CONFIGURING IPSEC PROXY ID----->\n")
-        ipsec_proxyid_configuration(
-            ipsec_proxyid_facts, logfile, pano
-        )
+    # # invoke function to configure the ipsec proxy ID if in the design facts
+    # if 'ipsec_proxyid' in design["facts"]:
+    #     ipsec_proxyid_facts = design["facts"]["ipsec_proxyid"]
+    #     console.print("\n[bold cyan]<-----CONFIGURING IPSEC PROXY ID----->")
+    #     logfile.write("<-----CONFIGURING IPSEC PROXY ID----->\n")
+    #     ipsec_proxyid_configuration(
+    #         ipsec_proxyid_facts, logfile, pano
+    #     )
     
 
 if __name__ == "__main__":
