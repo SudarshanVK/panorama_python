@@ -13,6 +13,7 @@ from panos.network import Bgp
 from panos.network import BgpAuthProfile
 from panos.network import BgpPeerGroup
 from panos.network import BgpPeer
+from panos.network import BgpRedistributionRule
 from panos.network import IkeCryptoProfile
 from panos.network import IkeGateway
 from panos.network import IpsecCryptoProfile
@@ -441,6 +442,40 @@ def bgp_peer_configuration(config_facts, logfile, pano) -> None:
                 f" Failed: BGP PEER : {peer['name']} failed to configure in VIRTUAL ROUTER:{virtual_router_parent} with message {msg}.\n"
             )
 
+
+def bgp_redist_configuration(config_facts, logfile, pano) -> None:
+    for profile in track(config_facts):
+        # define configuration tree
+        template_parent = Template(f"{profile['template']}")
+        virtual_router_parent = VirtualRouter(f"{profile['virtual_router']}")
+        # pop template, virtual router and peer group configuration to create a dictionary of static route configuration
+        profile.pop("template")
+        profile.pop("virtual_router")
+        # print (type(profile['name']))
+        # define configuration
+        configuration = BgpRedistributionRule(**profile)
+        try:
+            # Enter template configuration
+            template_config = pano.add(template_parent)
+            # enter vsys configuration
+            virtual_router_config = template_config.add(virtual_router_parent)
+            # enter BGP configuration
+            bgp_config = virtual_router_config.add(Bgp())
+            # enter BGP peer group
+            bgp_config.add(configuration).create()
+            console.print(
+                f"[bold green] :thumbs_up: BGP REDISTRIBUTION PROFILE : {profile['name']} successfully configured in VIRTUAL ROUTER:{virtual_router_parent}."
+            )
+            logfile.write(
+                f" Successful: BGP REDISTRIBUTION PROFILE : {profile['name']} successfully configured in VIRTUAL ROUTER:{virtual_router_parent}.\n"
+            )
+        except Exception as msg:
+            console.print(
+                f"[bold red] :thumbs_down: BGP REDISTRIBUTION PROFILE : {profile['name']} failed to configure in VIRTUAL ROUTER:{virtual_router_parent} with message {msg}."
+            )
+            logfile.write(
+                f" Failed: BGP REDISTRIBUTION PROFILE : {profile['name']} failed to configure in VIRTUAL ROUTER:{virtual_router_parent} with message {msg}.\n"
+            )
 
 def ike_crypto_profile_configuration(config_facts, logfile, pano) -> None:
     for profile in track(config_facts):

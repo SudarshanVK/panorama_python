@@ -1,6 +1,43 @@
 Reading design file design.xlsx
-<-----CONFIGURING ETHERNET INTERFACES----->
- Successful: ETHERNET INTERFACE: ethernet1/11 successfully configured.
- Successful: ETHERNET INTERFACE: ethernet1/12 successfully configured.
- Successful: ETHERNET INTERFACE: ethernet1/19 successfully configured.
- Successful: ETHERNET INTERFACE: ethernet1/20 successfully configured.
+<-----CONFIGURING IPSEC PROXY ID----->
+ Successful: IPSEC PROXY ID : LAUNCESTON_TRANSIT successfully configured for IPSEC TUNNEL: IPSEC-LAUNCESTON-TRANSIT
+ Successful: IPSEC PROXY ID : Logicalis_BaaS_Proxy successfully configured for IPSEC TUNNEL: Logicalis_BaaS_MGMT_IPSEC
+ Successful: IPSEC PROXY ID : Verizon successfully configured for IPSEC TUNNEL: Verizon_vLEC
+ Successful: IPSEC PROXY ID : Ethan successfully configured for IPSEC TUNNEL: ETHAN_IPSEC_TUNNEL
+ Successful: IPSEC PROXY ID : Ethan-1 successfully configured for IPSEC TUNNEL: ETHAN_IPSEC_TUNNEL
+ Successful: IPSEC PROXY ID : Ethan-2 successfully configured for IPSEC TUNNEL: ETHAN_IPSEC_TUNNEL
+ Successful: IPSEC PROXY ID : Ethan-3 successfully configured for IPSEC TUNNEL: ETHAN_IPSEC_TUNNEL
+ Successful: IPSEC PROXY ID : BoM-1 successfully configured for IPSEC TUNNEL: BoM_1_IPSEC_TUNNEL
+ Successful: IPSEC PROXY ID : BoM-2 successfully configured for IPSEC TUNNEL: BoM_2_IPSEC_TUNNEL
+ Successful: IPSEC PROXY ID : GENTRACK-1 successfully configured for IPSEC TUNNEL: GENTRACK_TUNNEL
+ Successful: IPSEC PROXY ID : GENTRACK-2 successfully configured for IPSEC TUNNEL: GENTRACK_TUNNEL
+ Successful: IPSEC PROXY ID : GENTRACK-3 successfully configured for IPSEC TUNNEL: GENTRACK_TUNNEL
+ Successful: IPSEC PROXY ID : GENTRACK-4 successfully configured for IPSEC TUNNEL: GENTRACK_TUNNEL
+ Successful: IPSEC PROXY ID : ADVAM_TEST successfully configured for IPSEC TUNNEL: ADVAM_TEST_TUNNEL
+ Successful: IPSEC PROXY ID : ADVAM_PROD successfully configured for IPSEC TUNNEL: ADVAM_PROD_TUNNEL
+ Successful: IPSEC PROXY ID : JETSTAR successfully configured for IPSEC TUNNEL: JETSTAR_JINTERNET_TUNNEL
+ Successful: IPSEC PROXY ID : JETSTAR_2 successfully configured for IPSEC TUNNEL: JETSTAR_JINTERNET_TUNNEL
+ Successful: IPSEC PROXY ID : RANGE01 successfully configured for IPSEC TUNNEL: SENSOR_DYNAMICS_TUNNEL
+ Successful: IPSEC PROXY ID : RANGE02 successfully configured for IPSEC TUNNEL: SENSOR_DYNAMICS_TUNNEL
+ Successful: IPSEC PROXY ID : RANGE03 successfully configured for IPSEC TUNNEL: SENSOR_DYNAMICS_TUNNEL
+ Successful: IPSEC PROXY ID : RANGE04 successfully configured for IPSEC TUNNEL: SENSOR_DYNAMICS_TUNNEL
+ Successful: IPSEC PROXY ID : STAFFtoESRI successfully configured for IPSEC TUNNEL: ESRI_EGIS_TUNNEL_1
+ Successful: IPSEC PROXY ID : GENETECtoESRI successfully configured for IPSEC TUNNEL: ESRI_EGIS_TUNNEL_1
+ Successful: IPSEC PROXY ID : MAXIMOtoESRI successfully configured for IPSEC TUNNEL: ESRI_EGIS_TUNNEL_1
+ Successful: IPSEC PROXY ID : TESTMAXIMOtoESRI successfully configured for IPSEC TUNNEL: ESRI_EGIS_TUNNEL_1
+ Successful: IPSEC PROXY ID : SECURITY_DC_TO_ESRP successfully configured for IPSEC TUNNEL: ESRI_EGIS_TUNNEL_1
+ Successful: IPSEC PROXY ID : STAFFtoESRI successfully configured for IPSEC TUNNEL: ESRI_EGIS_TUNNEL_2
+ Successful: IPSEC PROXY ID : AMStoAZURE successfully configured for IPSEC TUNNEL: AZURE_MEL_TUNNEL
+ Successful: IPSEC PROXY ID : CMXtoAZURE successfully configured for IPSEC TUNNEL: AZURE_MEL_TUNNEL
+ Successful: IPSEC PROXY ID : FLIRTtoAZURE successfully configured for IPSEC TUNNEL: AZURE_MEL_TUNNEL
+ Successful: IPSEC PROXY ID : CENTRALISEDtoAZURE successfully configured for IPSEC TUNNEL: AZURE_MEL_TUNNEL
+ Successful: IPSEC PROXY ID : ADVAM_TEST successfully configured for IPSEC TUNNEL: ADVAM_TEST_TUNNEL_1
+ Successful: IPSEC PROXY ID : ADVAM_TEST successfully configured for IPSEC TUNNEL: ADVAM_TEST_TUNNEL_2
+ Successful: IPSEC PROXY ID : ADVAM_PROD_NEW successfully configured for IPSEC TUNNEL: ADVAM_PROD_TUNNEL_1
+ Successful: IPSEC PROXY ID : ADVAM_PROD_NEW successfully configured for IPSEC TUNNEL: ADVAM_PROD_TUNNEL_2
+ Successful: IPSEC PROXY ID : AMStoAZURE successfully configured for IPSEC TUNNEL: AZURE_SYD_TUNNEL
+ Successful: IPSEC PROXY ID : CMXtoAZURE successfully configured for IPSEC TUNNEL: AZURE_SYD_TUNNEL
+ Successful: IPSEC PROXY ID : FLIRTtoAZURE successfully configured for IPSEC TUNNEL: AZURE_SYD_TUNNEL
+ Successful: IPSEC PROXY ID : CENTRALISEDtoAZURE successfully configured for IPSEC TUNNEL: AZURE_SYD_TUNNEL
+ Successful: IPSEC PROXY ID : A-CDM successfully configured for IPSEC TUNNEL: A-CDM_Primary
+ Successful: IPSEC PROXY ID : SewertoBMS successfully configured for IPSEC TUNNEL: SCADA_to_BMS

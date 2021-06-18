@@ -23,6 +23,7 @@ from config_modules.network_tab import bgp_base_configuration
 from config_modules.network_tab import bgp_auth_profile_configuration
 from config_modules.network_tab import bgp_peer_groups_configuration
 from config_modules.network_tab import bgp_peer_configuration
+from config_modules.network_tab import bgp_redist_configuration
 from config_modules.network_tab import ike_crypto_profile_configuration
 from config_modules.network_tab import ike_gateway_configuration
 from config_modules.network_tab import ipsec_crypto_profile_configuration
@@ -81,12 +82,12 @@ def main():
     #     logfile.write("<-----CONFIGURING AGGREGATE INTERFACES----->\n")
     #     aggregate_interface_configuration(agg_interface_facts, logfile, pano)
 
-    # invoke function to configure ethernet interfaces if in design facts
-    if 'ethernet_interfaces' in design['facts']:
-        ethernet_interface_facts = design['facts']['ethernet_interfaces']
-        console.print("\n[bold cyan]<-----CONFIGURING ETHERNET INTERFACES----->[/bold cyan]")
-        logfile.write("<-----CONFIGURING ETHERNET INTERFACES----->\n")
-        ethernet_interface_configuration(ethernet_interface_facts, logfile, pano)
+    # # invoke function to configure ethernet interfaces if in design facts
+    # if 'ethernet_interfaces' in design['facts']:
+    #     ethernet_interface_facts = design['facts']['ethernet_interfaces']
+    #     console.print("\n[bold cyan]<-----CONFIGURING ETHERNET INTERFACES----->[/bold cyan]")
+    #     logfile.write("<-----CONFIGURING ETHERNET INTERFACES----->\n")
+    #     ethernet_interface_configuration(ethernet_interface_facts, logfile, pano)
 
     # # invoke function to configure sub-interfaces if in design facts
     # if 'sub_interfaces' in design['facts']:
@@ -166,6 +167,13 @@ def main():
     #     console.print("\n[bold cyan]<-----CONFIGURING BGP PEERS----->")
     #     logfile.write("<-----CONFIGURING BGP PEERS----->\n")
     #     bgp_peer_configuration(bgp_peer_facts, logfile, pano)
+    
+    # # invoke function to configure bgp redis profile if in the design facts
+    # if 'bgp_redis' in design["facts"]:
+    #     bgp_redis_facts = design["facts"]["bgp_redis"]
+    #     console.print("\n[bold cyan]<-----CONFIGURING BGP REDISTRIBUTION PROFILE----->")
+    #     logfile.write("<-----CONFIGURING BGP REDISTRIBUTION PROFILE----->\n")
+    #     bgp_redist_configuration(bgp_redis_facts, logfile, pano)
 
     # # invoke function to configure ike crypto profile if in the design facts
     # if "ike_crypto_profile" in design["facts"]:
@@ -203,14 +211,14 @@ def main():
     #         ipsec_tunnel_facts, logfile, pano
     #     )
     
-    # # invoke function to configure the ipsec proxy ID if in the design facts
-    # if 'ipsec_proxyid' in design["facts"]:
-    #     ipsec_proxyid_facts = design["facts"]["ipsec_proxyid"]
-    #     console.print("\n[bold cyan]<-----CONFIGURING IPSEC PROXY ID----->")
-    #     logfile.write("<-----CONFIGURING IPSEC PROXY ID----->\n")
-    #     ipsec_proxyid_configuration(
-    #         ipsec_proxyid_facts, logfile, pano
-    #     )
+    # invoke function to configure the ipsec proxy ID if in the design facts
+    if 'ipsec_proxyid' in design["facts"]:
+        ipsec_proxyid_facts = design["facts"]["ipsec_proxyid"]
+        console.print("\n[bold cyan]<-----CONFIGURING IPSEC PROXY ID----->")
+        logfile.write("<-----CONFIGURING IPSEC PROXY ID----->\n")
+        ipsec_proxyid_configuration(
+            ipsec_proxyid_facts, logfile, pano
+        )
     
 
 if __name__ == "__main__":
