@@ -2,7 +2,8 @@
 
 The Script can be used to configure the following Panorama configuration items.
 It is written in pure python and uses the pan-os-python library. A reference to the python library can be found [here](https://pan-os-python.readthedocs.io/en/latest/).
-It uses a spreadsheet as the source of information. A Sample can be found [here](./desing.xlsx).
+
+It uses a spreadsheet as the source of information. A Sample can be found [here](./design.xlsx).
 
 * Template
 * Management Profile
@@ -56,7 +57,7 @@ python run.py
 # Logging
 
 The script logs the status of each action performed to standard output and also writes the output to a log file
-that is generated during execution. A sample logfile can be found [here][./logfile.log].
+that is generated during execution. A sample logfile can be found [here](./logfile.log).
 
 The standard output looks like:
 ![stdout](./images/stdout.png)
