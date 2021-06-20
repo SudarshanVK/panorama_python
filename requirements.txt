@@ -1,0 +1,9 @@
+colorama==0.4.4
+commonmark==0.9.1
+et-xmlfile==1.1.0
+openpyxl==3.0.7
+pan-os-python==1.2.0
+pan-python==0.16.0
+Pygments==2.9.0
+PyYAML==5.4.1
+rich==10.3.0
