@@ -33,7 +33,7 @@ It uses a spreadsheet as the source of information. A Sample can be found [here]
 
 # Files and Folders
 
-* **utils** - Contains the Pyton functions to covert spread sheet into a iteratable dictionary.
+* **utils** - Contains the Python functions to covert spread sheet into a iteratable dictionary.
 * **config_modules** - Contains the Python functions to make the configuration changes on panorama.
 * **inventory.yaml** - Contains the IP address of Panorama, the device credentials used and the name of the design spreadsheet.
 
