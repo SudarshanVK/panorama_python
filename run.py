@@ -7,7 +7,6 @@ console = Console()
 
 from utils.xls_to_facts import read_design
 from utils.connect import panorama_connect
-from utils.log import log_messages
 from config_modules.panorama_tab import template_configuration
 from config_modules.device_tab import vsys_configuration
 from config_modules.network_tab import vr_configuration

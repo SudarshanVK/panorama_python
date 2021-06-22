@@ -1,11 +1,11 @@
 device_details:
   device_ip: "10.40.41.175"
-  username: "admin10"
-  password: "4install"
+  username: "svcpaloaltoapinpe"
+  password: "admin"
 
 data:
   design_file: "design.xlsx"
-  defaults:
-    # set to false if vsys1 should be deleted if found
-      - template: TC_DC_PERIMETER
-        vsys1: false
+  # defaults:
+  #   # set to false if vsys1 should be deleted if found
+  #     - template: TC_DC_PERIMETER
+  #       vsys1: false
